@@ -32,14 +32,14 @@ public class GrayscaleFilter extends Filter
         
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
-               int p = image.getRGB(x, y);
-               int a = (p>>24)&0xff;
-               int r = (p>>16)&0xff;
-               int g = (p>>8)&0xff;
-               int b = p&0xff;
-               int avg = (r+g+b)/3;
-               p = (a<<24) | (avg<<16) | (avg<<8) | avg;
-               image.setRGB(x, y, p);
+               int pixel = image.getRGB(x, y);               
+               int green = (pixel >> 8)&0xff;
+               int alpha = (pixel >> 24)&0xff;
+               int blue = pixel&0xff;
+               int red = (pixel >> 16)&0xff;
+               int avgerage = (red + green + blue)/3;
+               pixel = (alpha << 24) | (avgerage << 16) | (avgerage << 8) | avgerage;
+               image.setRGB(x, y, pixel);
             }
         }
     }

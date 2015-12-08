@@ -1,4 +1,4 @@
-
+import java.awt.image.BufferedImage;
 /**
  * Write a description of class MirrorFilter here.
  * 
@@ -19,27 +19,27 @@ public class MirrorFilter extends Filter
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * A method that will mirror the original image
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param  image 
+     * 
      */
     public void apply(OFImage image)
     {
         // put your code here
         int height = image.getHeight();
         int width = image.getWidth();
+         
         
-        if (image.getWidth()%2 == 0){
-        for( int i = 0, k = image.getWidth()-1; i < k; i++, k--) {
-	            for (int j = 0 ,l = 0; j < image.getHeight() ;j++, l++) {
-	                
-	                int y = image.getPixel(k, l);
-	                int x = image.getPixel(i j);
-	                image.setPixel(i, j, y);
-	                image.setPixel(k, l, x);
-	               }
-	           }
-        	           }
+        for(int y = 0; y < height; y++) {
+            for(int lx = 0, rx = width - 1; lx < width; lx++, rx--) {         
+                 
+               int pixel = image.getRGB(lx, y);
+               image.setRGB(lx, y, pixel);
+               image.setRGB(rx, y, pixel);
+               
+            }
+           }
+    }
     
 }

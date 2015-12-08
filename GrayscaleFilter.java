@@ -19,10 +19,10 @@ public class GrayscaleFilter extends Filter
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * A method to make a picture a filter of grayscale
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param  image 
+     * 
      */
     public void apply(OFImage image)
     {
